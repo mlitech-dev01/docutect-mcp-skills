@@ -13,7 +13,7 @@ compatibility: Requires network access to the DocuTect AI MCP endpoint (HTTPS). 
 metadata:
   author: docutect-ai
   version: "1.0"
-  mcp-endpoint: https://api.docutect.ai/mcp
+  mcp-endpoint: https://api.docutect.com/mcp
   key-prefix: dtai_
 ---
 
