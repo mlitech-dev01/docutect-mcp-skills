@@ -44,10 +44,13 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json`
   "mcpServers": {
     "docutect-ai": {
       "command": "npx",
-      "args": ["-y", "mcp-remote", "https://api.docutect.com/mcp"],
-      "env": {
-        "DOCUTECT_API_KEY": "dtai_your_key_here"
-      }
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://api.docutect.com/mcp",
+        "--header",
+        "Authorization:Bearer dtai_your_key_here"
+      ]
     }
   }
 }
