@@ -18,7 +18,7 @@ DocuTect AI's API audit pipeline via the **Model Context Protocol (MCP)**.
 | `validate_document` | Validate a Markdown document vs LLMs | 1 audit credit |
 | `generate_api_documentation` | Generate OpenAPI 3.1 + Markdown docs | 1 audit credit |
 
-> **Tier requirement:** All tools require an **Enterprise** subscription. Generate API keys at `https://app.docutect.com/settings/api-keys`.
+> **Tier requirement:** All tools require a **Pro** or **Enterprise** subscription. Generate API keys at `https://app.docutect.com/settings/api-keys`.
 
 ---
 
@@ -36,8 +36,11 @@ Copy the `dtai_...` key — it is shown once only.
 
 ### Claude Desktop
 
-Add to `~/Library/Application Support/Claude/claude_desktop_config.json`
-(macOS) or `%APPDATA%\Claude\claude_desktop_config.json` (Windows):
+Edit the config file for your OS:
+- **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
+
+**macOS / Linux:**
 
 ```json
 {
@@ -45,6 +48,32 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json`
     "docutect-ai": {
       "command": "npx",
       "args": [
+        "-y",
+        "mcp-remote",
+        "https://api.docutect.com/mcp",
+        "--header",
+        "Authorization:Bearer dtai_your_key_here"
+      ]
+    }
+  }
+}
+```
+
+**Windows:**
+
+> **Note:** On Windows, do **not** use `"command": "npx"` directly. Claude Desktop resolves
+> `npx` to its full path (e.g. `C:\Program Files\nodejs\npx.cmd`) and passes it unquoted to
+> `cmd.exe`, which fails when the path contains spaces. Use `cmd /c npx` instead so that
+> `npx` is resolved via PATH at runtime.
+
+```json
+{
+  "mcpServers": {
+    "docutect-ai": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
         "-y",
         "mcp-remote",
         "https://api.docutect.com/mcp",
