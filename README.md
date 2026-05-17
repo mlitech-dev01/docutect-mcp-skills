@@ -1,6 +1,6 @@
 # docutect-mcp-skills
 
-Agent Skills for [DocuTect AI](https://docutect.ai) — connect any MCP-compatible AI client
+Agent Skills for [DocuTect AI](https://docutect.com) — connect any MCP-compatible AI client
 to the DocuTect AI audit and documentation scanning pipeline.
 
 ## What's included
@@ -13,7 +13,7 @@ to the DocuTect AI audit and documentation scanning pipeline.
 
 ### 1 — Get an API key
 
-Sign in at [docutect.ai](https://docutect.ai), go to **Dashboard → Settings → API Keys**,
+Sign in at [docutect.com](https://docutect.com), go to **Dashboard → Settings → API Keys**,
 and create a key. Keys start with `dtai_`.
 
 ### 2 — Add to your MCP client
@@ -25,7 +25,7 @@ and create a key. Keys start with `dtai_`.
   "mcpServers": {
     "docutect-ai": {
       "command": "npx",
-      "args": ["-y", "mcp-remote", "https://api.docutect.ai/mcp"],
+      "args": ["-y", "mcp-remote", "https://api.docutect.com/mcp"],
       "env": {
         "DOCUTECT_API_KEY": "dtai_your_key_here"
       }
@@ -41,7 +41,7 @@ and create a key. Keys start with `dtai_`.
   "servers": {
     "docutect-ai": {
       "type": "http",
-      "url": "https://api.docutect.ai/mcp",
+      "url": "https://api.docutect.com/mcp",
       "headers": {
         "Authorization": "Bearer dtai_your_key_here"
       }
@@ -53,8 +53,8 @@ and create a key. Keys start with `dtai_`.
 **cURL test**:
 
 ```bash
-curl -s https://api.docutect.ai/mcp/health
-curl -s https://api.docutect.ai/mcp/tools \
+curl -s https://api.docutect.com/mcp/health
+curl -s https://api.docutect.com/mcp/tools \
   -H "Authorization: Bearer dtai_your_key_here"
 ```
 

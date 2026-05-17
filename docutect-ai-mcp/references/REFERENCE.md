@@ -18,7 +18,7 @@ DocuTect AI's API audit pipeline via the **Model Context Protocol (MCP)**.
 | `validate_document` | Validate a Markdown document vs LLMs | 1 audit credit |
 | `generate_api_documentation` | Generate OpenAPI 3.1 + Markdown docs | 1 audit credit |
 
-> **Tier requirement:** All tools require an **Enterprise** subscription. Generate API keys at `https://app.docutect.ai/settings/api-keys`.
+> **Tier requirement:** All tools require an **Enterprise** subscription. Generate API keys at `https://app.docutect.com/settings/api-keys`.
 
 ---
 
@@ -44,7 +44,7 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json`
   "mcpServers": {
     "docutect-ai": {
       "command": "npx",
-      "args": ["-y", "mcp-remote", "https://api.docutect.ai/mcp"],
+      "args": ["-y", "mcp-remote", "https://api.docutect.com/mcp"],
       "env": {
         "DOCUTECT_API_KEY": "dtai_your_key_here"
       }
@@ -67,7 +67,7 @@ In VS Code settings (`settings.json`):
     "servers": {
       "docutect-ai": {
         "type": "http",
-        "url": "https://api.docutect.ai/mcp",
+        "url": "https://api.docutect.com/mcp",
         "headers": {
           "Authorization": "Bearer dtai_your_key_here"
         }
@@ -89,7 +89,7 @@ In Cursor → Preferences → MCP Servers:
 {
   "mcpServers": {
     "docutect-ai": {
-      "url": "https://api.docutect.ai/mcp",
+      "url": "https://api.docutect.com/mcp",
       "headers": {
         "Authorization": "Bearer dtai_your_key_here"
       }
@@ -112,7 +112,7 @@ In `.continue/config.json`:
       "name": "docutect-ai",
       "transport": {
         "type": "http",
-        "url": "https://api.docutect.ai/mcp"
+        "url": "https://api.docutect.com/mcp"
       },
       "headers": {
         "Authorization": "Bearer dtai_your_key_here"
@@ -214,7 +214,7 @@ graph.add_edge("audit", END)
 
 app = graph.compile()
 
-asyncio.run(app.ainvoke({"repo_url": "https://github.com/myorg/myapi"}))
+asyncio.run(app.comnvoke({"repo_url": "https://github.com/myorg/myapi"}))
 ```
 
 ---

@@ -42,7 +42,7 @@ except ImportError as exc:
         "langchain is required: pip install langchain langchain-community"
     ) from exc
 
-_BASE_URL = os.environ.get("DOCUTECT_MCP_URL", "https://api.docutect.ai/mcp")
+_BASE_URL = os.environ.get("DOCUTECT_MCP_URL", "https://api.docutect.com/mcp")
 _TIMEOUT = 120  # seconds — audits can run for up to 2 minutes
 
 
@@ -56,7 +56,7 @@ def _get_api_key() -> str:
     if not key:
         raise EnvironmentError(
             "DOCUTECT_API_KEY environment variable is not set. "
-            "Generate a key at https://app.docutect.ai/settings/api-keys"
+            "Generate a key at https://app.docutect.com/settings/api-keys"
         )
     return key
 
